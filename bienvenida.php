@@ -19,5 +19,6 @@ if (!isset($_SESSION['alias'])) {
     <form>
         <h2>Hola, <?php echo $_SESSION['nombre_completo']; ?> has iniciado sesión.</h2>
         <button type="button" onclick="location.href='cerrar_sesion.php'">Cerrar Sesión</button>
+        <button type="button" onclick="location.href='enviarSolicitud.html'">Buscar Amigos</button>
 </body>
 </html>

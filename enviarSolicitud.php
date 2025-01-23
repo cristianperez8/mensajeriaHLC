@@ -2,37 +2,34 @@
 session_start();
 require 'conexionBD.php';
 
-$usuario_alias = $_SESSION['alias']; // Suponiendo que el alias se guarda en la sesión
-$amigo_alias = $_POST['amigo_alias'];
-
-$sql = "INSERT INTO amigos (usuario_alias, amigo_alias, status) VALUES (?, ?, 'pendiente')";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('ss', $usuario_alias, $amigo_alias);
-
-if ($stmt->execute()) {
-    echo "Solicitud de amistad enviada.";
-} else {
-    echo "Error al enviar la solicitud.";
+// Verifica que el alias esté en la sesión
+if (!isset($_SESSION['alias'])) {
+    exit;
 }
 
-$stmt->close();
-$conn->close();
+$usuario_alias = $_SESSION['alias'];
+$amigo_alias = $_POST['amigo_alias'];
+
+try {
+    // Prepara la consulta
+    $stmt = $conn->prepare("INSERT INTO amigos (usuario_alias, amigo_alias, status) VALUES (:usuario_alias, :amigo_alias, 'pendiente')");
+    // Vincula los parámetros
+    $stmt->bindParam(':usuario_alias', $usuario_alias);
+    $stmt->bindParam(':amigo_alias', $amigo_alias);
+
+    // Debugging: Verifica los datos
+    echo "Alias de usuario: $usuario_alias <br>";
+    echo "Alias del amigo: $amigo_alias <br>";
+    
+    // Ejecuta la consulta
+    if ($stmt->execute()) {
+        echo "Solicitud de amistad enviada.";
+    } else {
+        echo "Error al enviar la solicitud.";
+    }
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+$conn = null;
 ?>
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Enviar Solicitud de Amistad</title>
-</head>
-<body>
-    <h1>Enviar Solicitud de Amistad</h1>
-    <form action="enviar_solicitud.php" method="post">
-        <label for="amigo_alias">Alias del Amigo:</label>
-        <input type="text" id="amigo_alias" name="amigo_alias" required>
-        <button type="submit">Enviar Solicitud</button>
-    </form>
-</body>
-</html>
-
