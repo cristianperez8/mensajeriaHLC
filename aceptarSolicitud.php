@@ -5,7 +5,7 @@ require 'conexionBD.php';
 $usuario_alias = $_SESSION['alias'];
 $amigo_alias = $_POST['amigo_alias'];
 
-$sql = "UPDATE friends SET status = 'aceptado' WHERE usuario_alias = ? AND amigo_alias = ?";
+$sql = "UPDATE amigos SET status = 'aceptado' WHERE usuario_alias = ? AND amigo_alias = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ss', $amigo_alias, $usuario_alias);
 

@@ -5,7 +5,7 @@ require 'conexionBD.php';
 $usuario_alias = $_SESSION['alias']; // Suponiendo que el alias se guarda en la sesión
 $amigo_alias = $_POST['amigo_alias'];
 
-$sql = "INSERT INTO friends (usuario_alias, amigo_alias, status) VALUES (?, ?, 'pendiente')";
+$sql = "INSERT INTO amigos (usuario_alias, amigo_alias, status) VALUES (?, ?, 'pendiente')";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ss', $usuario_alias, $amigo_alias);
 
