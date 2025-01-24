@@ -4,7 +4,7 @@ USE practica3DB;
 
 -- Crear la tabla usuario
 
-CREATE TABLE IF NOT EXISTS usuario (
+CREATE TABLE usuario (
     alias VARCHAR(50) PRIMARY KEY,
     password VARCHAR(50) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
@@ -38,3 +38,4 @@ CREATE TABLE mensajes (
     FOREIGN KEY (envia_alias) REFERENCES usuario(alias),
     FOREIGN KEY (recibe_alias) REFERENCES usuario(alias)
 );
+
