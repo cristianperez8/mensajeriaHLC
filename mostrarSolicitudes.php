@@ -25,18 +25,22 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Solicitudes de Amistad</title>
+    <link rel="stylesheet" href="cssP3.css">
 </head>
 <body>
+    <div class="container">
     <h1>Solicitudes de Amistad</h1>
-    <?php foreach ($solicitudes as $solicitud): ?>
-        <div>
-            <p><?php echo $solicitud['usuario_alias']; ?> te ha enviado una solicitud de amistad.</p>
-            <form action="gestionarSolicitud.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $solicitud['id']; ?>">
-                <button type="submit" name="accion" value="aceptar">Aceptar</button>
-                <button type="submit" name="accion" value="rechazar">Rechazar</button>
-            </form>
-        </div>
-    <?php endforeach; ?>
+        <?php foreach ($solicitudes as $solicitud): ?>
+            <div class="solicitud">
+                <p><?php echo $solicitud['usuario_alias']; ?> te ha enviado una solicitud de amistad.</p>
+                <form action="gestionarSolicitud.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $solicitud['id']; ?>">
+                    <button type="submit" name="accion" value="aceptar">Aceptar</button>
+                    <button type="submit" name="accion" value="rechazar">Rechazar</button>
+                </form>
+            </div>
+        <?php endforeach; ?>
+        <button type="button" onclick="location.href='bienvenida.php'">Volver al Menú</button>
+    </div>
 </body>
 </html>

@@ -28,17 +28,15 @@ $conn = null;
     <link rel="stylesheet" href="cssP3.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Seleccionar Usuario para Enviar Mensaje</h1>
-        <form action="chat.php" method="get">
-            <label for="recibe_alias">Alias del Receptor:</label>
-            <select id="recibe_alias" name="recibe_alias" required>
-                <?php foreach ($result as $row) { ?>
-                    <option value="<?php echo htmlspecialchars($row['amigo']); ?>"><?php echo htmlspecialchars($row['amigo']); ?></option>
-                <?php } ?>
-            </select>
-            <button type="submit">Seleccionar Usuario</button>
-        </form>
-    </div>
+    <form action="chat.php" method="get">
+        <h2>Seleccionar Usuario para Enviar Mensaje</h1>
+        <label for="recibe_alias">Alias del Receptor:</label>
+        <select id="recibe_alias" name="recibe_alias" required>
+            <?php foreach ($result as $row) { ?>
+                <option value="<?php echo htmlspecialchars($row['amigo']); ?>"><?php echo htmlspecialchars($row['amigo']); ?></option>
+            <?php } ?>
+        </select>
+        <button type="submit">Seleccionar Usuario</button>
+    </form>
 </body>
 </html>

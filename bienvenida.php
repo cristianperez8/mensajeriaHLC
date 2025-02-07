@@ -22,5 +22,6 @@ if (!isset($_SESSION['alias'])) {
         <button type="button" onclick="location.href='enviarSolicitud.html'">Buscar Amigos</button>
         <button type="button" onclick="location.href='mostrarSolicitudes.php'">Solicitudes Recibidas</button>
         <button type="button" onclick="location.href='selecionar_usuario.php'">Selecionar Usuario para Chat</button>
+    </form>
 </body>
 </html>

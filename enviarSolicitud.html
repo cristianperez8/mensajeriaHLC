@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Enviar Solicitud de Amistad</title>
+    <link rel="stylesheet" href="cssP3.css">
 </head>
 <body>
-    <h1>Enviar Solicitud de Amistad</h1>
     <form action="enviarSolicitud.php" method="post">
+        <h2>Enviar Solicitud de Amistad</h2>
         <label for="amigo_alias">Alias del Amigo:</label>
         <input type="text" id="amigo_alias" name="amigo_alias" required>
         <button type="submit">Enviar Solicitud</button>
+        <button type="button" onclick="location.href='bienvenida.php'">Volver al Menú</button>
     </form>
 </body>
 </html>

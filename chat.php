@@ -29,20 +29,20 @@ $result = array_reverse($stmt->fetchAll(PDO::FETCH_ASSOC)); // Invertimos el ord
     <link rel="stylesheet" href="cssP3.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Chat con <?php echo htmlspecialchars($recibe_alias); ?></h1>
-        <div class="chat-messages">
-            <?php foreach ($result as $row) { ?>
-                <p><strong><?php echo htmlspecialchars($row['envia_alias']); ?>:</strong> <?php echo htmlspecialchars($row['mensaje']); ?> <em>(<?php echo $row['hora_envio']; ?>)</em></p>
-            <?php } ?>
-        </div>
-        <form action="enviarMensaje.php" method="post">
+    <form action="enviarMensaje.php" method="post">
+        <div class="container">
+            <h1>Chat con <?php echo htmlspecialchars($recibe_alias); ?></h1>
+            <div class="chat-messages">
+                <?php foreach ($result as $row) { ?>
+                    <p><strong><?php echo htmlspecialchars($row['envia_alias']); ?>:</strong> <?php echo htmlspecialchars($row['mensaje']); ?> <em>(<?php echo $row['hora_envio']; ?>)</em></p>
+                <?php } ?>
+            </div>
             <input type="hidden" name="recibe_alias" value="<?php echo htmlspecialchars($recibe_alias); ?>">
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>    
             <button type="submit">Enviar Mensaje</button>
-        </form>
-    </div>
+        </div>
+    </form>
 </body>
 </html>
 
