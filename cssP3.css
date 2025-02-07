@@ -8,6 +8,10 @@ body {
     color: #ffa726;
 }
 
+.container {
+    text-align: center;
+}
+
 label {
     display: block;
     margin-top: 10px;
@@ -23,7 +27,7 @@ form {
     padding: 20px;
 }
 
-input {
+input, select {
     font-family: Verdana, Tahoma, sans-serif;
     width: 300px;
     padding: 10px;
