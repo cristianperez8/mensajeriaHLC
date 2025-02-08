@@ -33,6 +33,7 @@ $result = array_reverse($stmt->fetchAll(PDO::FETCH_ASSOC)); // Invertimos el ord
         <div class="container">
             <h1>Chat con <?php echo htmlspecialchars($recibe_alias); ?></h1>
             <div class="chat-messages">
+                <!-- Muestra cada mensaje del chat -->
                 <?php foreach ($result as $row) { ?>
                     <p><strong><?php echo htmlspecialchars($row['envia_alias']); ?>:</strong> <?php echo htmlspecialchars($row['mensaje']); ?> <em>(<?php echo $row['hora_envio']; ?>)</em></p>
                 <?php } ?>

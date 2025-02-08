@@ -7,6 +7,7 @@ $amigo_alias = $_POST['amigo_alias'];
 
 $sql = "UPDATE amigos SET status = 'aceptado' WHERE usuario_alias = ? AND amigo_alias = ?";
 $stmt = $conn->prepare($sql);
+// El primer argumento ('ss') indica que ambos parámetros son cadenas de texto string
 $stmt->bind_param('ss', $amigo_alias, $usuario_alias);
 
 if ($stmt->execute()) {
